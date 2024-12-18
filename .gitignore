@@ -1,0 +1,8 @@
+Regrouped_NSFW1
+dataset
+venv
+# Ignore Python cache files
+__pycache__/
+
+# Ignore system files
+.DS_Store
