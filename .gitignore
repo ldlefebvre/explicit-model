@@ -6,3 +6,15 @@ __pycache__/
 
 # Ignore system files
 .DS_Store
+
+# Ignore model files and saved states
+*.mlmodel
+*.mlpackage/
+*.keras
+saved_model/
+
+# Ignore CUDA keyring files
+*.deb*
+
+# Ignore any large data artifacts
+dataset/
