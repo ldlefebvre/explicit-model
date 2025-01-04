@@ -74,3 +74,6 @@ print("Resources cleaned up. Script finished.")
 # rm output3.log
 
 #otherwise to run it: python3 convert_to_coreml.py
+
+#To transfer the mlpackage folder from remote desktop to mac in the current directory:
+#scp -r wsl:/home/lagoupo/code/ldlefebvre/explicit-model/model_two_categories/NSFWSafeClassifier.mlpackage .
