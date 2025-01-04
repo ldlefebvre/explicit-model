@@ -18,3 +18,7 @@ saved_model/
 
 # Ignore any large data artifacts
 dataset/
+
+model_two_categories
+model_five_categories
+Model1-Test/

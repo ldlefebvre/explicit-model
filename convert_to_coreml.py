@@ -58,5 +58,19 @@ except ModuleNotFoundError:
 
 print("Resources cleaned up. Script finished.")
 
-#to run it: python3 convert_to_coreml.py
+# tmux new -s convert_to_coreml
+# python3 convert_to_coreml.py 2>&1 | tee output3.log
+# Detach: Press Ctrl+b followed by d.
+# Reattach: tmux attach -t convert_to_coreml
+# tail -f output3.log
+# tmux ls
+# tmux kill-session -t convert_to_coreml
+
 #run after in terminal: sudo sync && sudo sysctl -w vm.drop_caches=3
+# To see gpu usage: watch -n 1 nvidia-smi
+# To see memory usage: watch -n 1 free -h
+# htop
+# cat output3.log | tee temp3.txt
+# rm output3.log
+
+#otherwise to run it: python3 convert_to_coreml.py
