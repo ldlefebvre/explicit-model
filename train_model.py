@@ -1338,9 +1338,14 @@ gc.collect()
 # ControlPath: Specifies the path for the control socket.
 # ControlPersist yes: Keeps the master connection open in the background after the initial session is closed.
 
+# ssh -M -S ~/.ssh/ssh_mux_wsl -fN wsl
+
 # ssh wsl "tail -n +2 /home/lagoupo/code/ldlefebvre/explicit-model/misclassified_images.csv" \
 # | while IFS=, read -r file_name pred_label true_label; do
 #     mkdir -p "${true_label}"
 #     remote_path="/home/lagoupo/code/ldlefebvre/explicit-model/dataset/test/${file_name}"
 #     rsync -av "wsl:${remote_path}" "${true_label}/"
 # done
+
+# ssh wsl "exit"
+# ssh -S ~/.ssh/ssh_mux_wsl -O exit wsl
