@@ -22,3 +22,8 @@ dataset/
 model_two_categories
 model_five_categories
 Model1-Test/
+
+1.jpg
+coreml_env/
+extracted_model/
+output*

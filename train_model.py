@@ -886,7 +886,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Conv2D, MaxPooling2D, Flatten, Dropout
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
-from tensorflow.keras.mixed_precision import set_global_policy, LossScaleOptimizer
+# from tensorflow.keras.mixed_precision import set_global_policy, LossScaleOptimizer
 from tensorflow.keras import Input
 from PIL import Image
 import gc
@@ -899,7 +899,10 @@ from PIL import Image
 import csv
 
 # Enable Mixed Precision
-set_global_policy('mixed_float16')
+# set_global_policy('mixed_float16')
+
+# policy = mixed_precision.Policy('float32')
+# mixed_precision.set_policy(policy)
 
 # Dataset Directories
 TRAIN_DIR = "dataset/train"
@@ -1000,9 +1003,12 @@ model = Sequential([
 
 # Compile Model
 # model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+# base_optimizer = tf.keras.optimizers.Adam()
+# optimizer = LossScaleOptimizer(base_optimizer)
+# model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+
 base_optimizer = tf.keras.optimizers.Adam()
-optimizer = LossScaleOptimizer(base_optimizer)
-model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+model.compile(optimizer=base_optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
 
 
 # Callbacks
@@ -1349,3 +1355,5 @@ gc.collect()
 
 # ssh wsl "exit"
 # ssh -S ~/.ssh/ssh_mux_wsl -O exit wsl
+
+#rsync -av --out-format="%n" model_two_categories/dataset/ dataset/ | pv -lep -s $(find model_two_categories/dataset/ -type f | wc -l) > /dev/null
